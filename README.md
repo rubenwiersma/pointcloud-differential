@@ -1,4 +1,4 @@
-# Differential operators on point clouds
+# `pcdiff`: Differential operators on point clouds
 Simple and small library to compute differential operators (gradient, divergence, Laplacian) on point clouds.
 
 ## Installation
