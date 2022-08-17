@@ -59,7 +59,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='pcdiff',
-    version='1.0.0',
+    version='1.0.1',
     author='Ruben Wiersma',
     author_email="rubenwiersma@gmail.com",
     description='Simple and small library to compute differential operators (gradient, divergence, Laplacian) on point clouds.',
