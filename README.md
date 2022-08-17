@@ -8,7 +8,7 @@ pip install pcdiff
 ```
 
 ## Example usage
-Import the required functionality and get your gradient and divergence matrices:
+See `demo.py` in `examples` for a full visual demo. For a quick start:
 ```python
 import numpy as np
 from pcdiff import knn_graph, estimate_basis, build_grad_div

@@ -191,7 +191,7 @@ def fit_vector_mapping(pos, normal, x_basis, y_basis, edge_index, wls, coords):
     return inverse_metric @ basis_transformation # [N, 2, 2]
 
 
-def build_grad_div(pos, normal, x_basis, y_basis, edge_index, kernel_width=1, regularizer=0.001, shape_regularizer=None):
+def build_grad_div(pos, normal, x_basis, y_basis, edge_index, kernel_width=1, regularizer=1e-8, shape_regularizer=None):
     """Builds a gradient and divergence operators using Weighted Least Squares (WLS).
     Note: this function is only faster if used on the GPU.
     Use pointcloud-ops when applying transforms on the CPU.
@@ -206,7 +206,7 @@ def build_grad_div(pos, normal, x_basis, y_basis, edge_index, kernel_width=1, re
         kernel_width (float, optional): the size of the kernel,
             relative to the average edge length in each shape (default: 1).
         regularizer (float: optional): the regularizer parameter
-            for weighted least squares fitting (default: 0.001).
+            for weighted least squares fitting (default: 1e-8).
         normalized (bool: optional): Normalizes the operators by the
             infinity norm if set to True (default: True):
             G = G / |G|_{\inf}
