@@ -11,7 +11,7 @@ pip install pcdiff
 See `demo.py` in `examples` for a full visual demo. For a quick start:
 ```python
 import numpy as np
-from pcdiff import knn_graph, estimate_basis, build_grad_div
+from pcdiff import knn_graph, estimate_basis, build_grad_div, laplacian
 
 # Random point cloud
 pos = np.random.rand(1000, 3)
@@ -23,10 +23,14 @@ basis = estimate_basis(pos, edge_index)
 # Build gradient and divergence operators (Scipy sparse matrices)
 grad, div = build_grad_div(pos, *basis, edge_index)
 
-# ... use gradient and divergence in any task you like
+# Setup the Laplacian as the divergence of gradient:
+laplacian = -(div @ grad)
 ```
 
-For sake of simplicity, every operation is written in Numpy and can be accelerated with Numba or Jax. If you would like to use these operators in PyTorch, please refer the github repository for [DeltaConv](https://github.com/rubenwiersma/deltaconv): `pip install deltaconv` and use the operators from `deltaconv.geometry`.
+For sake of simplicity, every operation is written in Numpy and could be accelerated with Numba or Jax. If you would like to use these operators in PyTorch, please refer the github repository for [DeltaConv](https://github.com/rubenwiersma/deltaconv): `pip install deltaconv` and use the operators from `deltaconv.geometry`.
+
+## Alternatives
+There are many alternatives to compute discrete differential operators in Python (e.g., `potpourri3d`, `libigl`, `gptoolbox`). Most of them did not have an implementation available or exposed for gradients and divergence on point clouds. `pcdiff` is intended to be complementary to these libraries.
 
 ## Citation
 If you find this library useful in your own work, please cite our paper on DeltaConv, a convolution for point clouds that uses these operators:
