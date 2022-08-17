@@ -28,6 +28,7 @@ grad, div = build_grad_div(pos, *basis, edge_index)
 
 For sake of simplicity, every operation is written in Numpy and can be accelerated with Numba or Jax. If you would like to use these operators in PyTorch, please refer the github repository for [DeltaConv](https://github.com/rubenwiersma/deltaconv): `pip install deltaconv` and use the operators from `deltaconv.geometry`.
 
+## Citation
 If you find this library useful in your own work, please cite our paper on DeltaConv, a convolution for point clouds that uses these operators:
 
 ```bib
