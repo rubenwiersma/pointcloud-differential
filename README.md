@@ -4,7 +4,7 @@ Simple and small library to compute differential operators (gradient, divergence
 ## Installation
 The recommended installation method is by using pip:
 ```bash
-pip install ./
+pip install pcdiff
 ```
 
 ## Example usage

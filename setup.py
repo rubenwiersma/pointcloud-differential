@@ -77,7 +77,7 @@ setuptools.setup(
     ],
     packages=setuptools.find_packages(where=".", include=["pcdiff", "pcdiff.*"]),
     python_requires='>=3.6',
-    install_requires=[],
+    install_requires=['numpy', 'scikit-learn'],
     zip_safe=False,
     test_suite="test"
 )
