@@ -61,5 +61,3 @@ If you find this library useful in your own work, please cite our paper on Delta
   publisher = {ACM},
 }
 ```
-
-)
