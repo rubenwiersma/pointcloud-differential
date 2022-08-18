@@ -35,7 +35,7 @@ x = np.random.rand(1000, 1)
 grad_x = grad @ x
 ```
 
-For sake of simplicity, every operation is written in Numpy and could be accelerated with Numba or Jax. If you would like to use these operators in PyTorch, please refer the github repository for [DeltaConv](https://github.com/rubenwiersma/deltaconv): `pip install deltaconv` and use the operators from `deltaconv.geometry`.
+For sake of simplicity, every operation is written in Numpy and could be accelerated with Numba or Jax. If you would like to use these operators in PyTorch, please refer the github repository for [DeltaConv](https://github.com/rubenwiersma/deltaconv). The operators are accessible from `deltaconv.geometry`.
 
 ## How does it work?
 We use a moving-least-squares approach. TL;DR: we fit a small patch of surface to each point's neighborhood and compute gradient and divergence on this patch of surface. A more detailed procedure is described in [the paper where we used this technique](https://rubenwiersma.nl/assets/pdf/DeltaConv.pdf) and [its supplement](https://rubenwiersma.nl/assets/pdf/DeltaConv_supplement.pdf).
