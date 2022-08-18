@@ -8,7 +8,7 @@ pip install pcdiff
 ```
 
 ## Example usage
-See `demo.py` in `examples` for a full visual demo. For a quick start:
+See [examples/demo.py](examples/demo.py) for a full visual demo. For a quick start:
 ```python
 import numpy as np
 from pcdiff import knn_graph, estimate_basis, build_grad_div, laplacian
@@ -37,10 +37,10 @@ grad_x = grad @ x
 
 For sake of simplicity, every operation is written in Numpy and could be accelerated with Numba or Jax. If you would like to use these operators in PyTorch, please refer the github repository for [DeltaConv](https://github.com/rubenwiersma/deltaconv): `pip install deltaconv` and use the operators from `deltaconv.geometry`.
 
-## How is it computed?
+## How does it work?
 We use a moving-least-squares approach. TL;DR: we fit a small patch of surface to each point's neighborhood and compute gradient and divergence on this patch of surface. A more detailed procedure is described in [the paper where we used this technique](https://rubenwiersma.nl/assets/pdf/DeltaConv.pdf) and [its supplement](https://rubenwiersma.nl/assets/pdf/DeltaConv_supplement.pdf).
 
-The output of this procedure is a $2N \times N$ sparse matrix for gradient and $N \times 2N$ sparse matrix for divergence. We also add functionality to use these matrices to compute co-gradient, curl, and Laplacians on a scalar/vector field on point clouds.
+The output of this procedure is a $2N \times N$ sparse matrix for gradient and $N \times 2N$ sparse matrix for divergence. We also add functionality to use these matrices to compute co-gradient, curl, and Laplacians on a scalar/vector field on point clouds. This functionality can be found in [pcdiff/operators.py](pcdiff/operators.py).
 
 ## Alternatives
 There are many alternatives to compute discrete differential operators in Python (e.g., `potpourri3d`, `libigl`, `gptoolbox`). Most of them did not have an implementation available or exposed for gradients and divergence on point clouds. Do check out these awesome libraries; `pcdiff` is intended to complement them.
