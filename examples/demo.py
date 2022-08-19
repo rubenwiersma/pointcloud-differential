@@ -19,7 +19,7 @@ ps.register_point_cloud("Spot", pos)
 ps.get_point_cloud("Spot").add_scalar_quantity("x-coordinate", pos[:, 0], enabled=True)
 
 # Compute gradient, divergence
-edge_index = knn_graph(pos, 20)
+edge_index = knn_graph(pos, 10)
 normal, x_basis, y_basis = estimate_basis(pos, edge_index)
 grad, div = build_grad_div(pos, normal, x_basis, y_basis, edge_index)
 
