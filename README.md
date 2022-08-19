@@ -1,6 +1,10 @@
 # `pcdiff`: Differential operators on point clouds
 Simple and small library to compute differential operators (gradient, divergence, Laplacian) on point clouds.
 
+![Example gradient of x-coordinate](assets/img/gradient.png)
+
+_Example output of the gradient operator on a scalar field._
+
 ## Installation
 The recommended installation method is by using pip:
 ```bash

@@ -15,6 +15,8 @@ pos, _ = pp3d.read_mesh('examples/spot.obj')
 
 # Add point cloud to Polyscope
 ps.register_point_cloud("Spot", pos)
+# Show x-coordinate as scalar value
+ps.get_point_cloud("Spot").add_scalar_quantity("x-coordinate", pos[:, 0], enabled=True)
 
 # Compute gradient, divergence
 edge_index = knn_graph(pos, 20)
@@ -36,7 +38,7 @@ L_pos = div @ grad @ pos
 
 # Show result as 3D vectors on point clouds (point in the normal direction, norm is mean curvature)
 ps.get_point_cloud("Spot").add_vector_quantity("Mean curvature vector", L_pos)
-ps.get_point_cloud("Spot").add_scalar_quantity("Mean curvature", LA.norm(L_pos, axis=1), enabled=True)
+ps.get_point_cloud("Spot").add_scalar_quantity("Mean curvature", LA.norm(L_pos, axis=1))
 
 # Show result
 ps.show()
