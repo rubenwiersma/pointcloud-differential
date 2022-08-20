@@ -3,7 +3,7 @@ Simple and small library to compute differential operators (gradient, divergence
 
 ![Example gradient of x-coordinate](assets/img/gradient.png)
 
-_Visualization in Polyscope of the output of the gradient operator on the x-coordinate._
+_Visualization in [Polyscope](https://polyscope.run) of the output of the gradient operator on the x-coordinate of Spot (by Keenan Crane)._
 
 ## Installation
 The recommended installation method is by using pip:
